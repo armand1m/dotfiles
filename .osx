@@ -259,6 +259,9 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
+# Use dockutil to remove all items from the Dock
+dockutil --remove all
+
 # Set the icon size of Dock items
 defaults write com.apple.dock tilesize -int 60
 
