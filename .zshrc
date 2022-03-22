@@ -135,6 +135,7 @@ alias flush-dns="dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 alias git-effort="git log --pretty=format: --name-only | sort | uniq -c | sort -rg"
 alias psdocker="docker ps -q | xargs docker stats --no-stream"
 alias reset-vpn="sudo route delete pcs.flxvpn.net"
+alias toggle-mac-theme="osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bitcomplete bit
