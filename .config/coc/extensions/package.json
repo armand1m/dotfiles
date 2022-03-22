@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "coc-explorer": ">=0.22.9"
+  }
+}
