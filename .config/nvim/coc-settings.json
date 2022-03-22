@@ -1,0 +1,54 @@
+{
+  "git.addGBlameToBufferVar": false,
+  "codeLens.enable": true,
+  "git.blameUseRealTime": true,
+  "explorer.file.showHiddenFiles": true,
+  "typescript.referencesCodeLens.enable": true,
+  "typescript.showUnused": true,
+  "typescript.implementationsCodeLens.enable": true,
+  "typescript.autoClosingTags": true,
+  "git.enableGutters": true,
+  "git.realtimeGutters": true,
+  "git.addGBlameToVirtualText": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.quoteStyle": "double",
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
+  "typescript.preferences.useAliasesForRenames": true,
+  "yaml.schemas": {
+    "https://api.spinnaker.mgmt.netflix.net/managed/delivery-configs/schema": ["spinnaker.yml"],
+    "/Users/amagalhaes/.genesis/genesis.schema.json": [
+      "/Users/amagalhaes/.genesis/config.yml",
+      "*.genesis.yml",
+      "*.genesis.yaml"
+    ]
+  },
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    },
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": [
+        "--lsp"
+      ],
+      "rootPatterns": [
+        ".stack.yaml",
+        ".hie-bios",
+        "BUILD.bazel",
+        "cabal.config",
+        "package.yaml"
+      ],
+      "trace.server": "verbose",
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ]
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "prisma"
+  ]
+}
