@@ -1,6 +1,6 @@
 [user]
-  name = Armando Magalhães
-  email = armando.mag95@gmail.com
+	name = Armando Magalhaes
+	email = amagalhaes@netflix.com
 [core]
   editor = vi
   excludesfile = ~/.gitignore
@@ -26,3 +26,8 @@
   cmd = code --wait --diff $LOCAL $REMOTE
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
