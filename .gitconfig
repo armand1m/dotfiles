@@ -2,7 +2,7 @@
 	name = Armando Magalhaes
 	email = amagalhaes@netflix.com
 [core]
-  editor = vi
+  editor = nvim
   excludesfile = ~/.gitignore
   autocrlf = input
 [color]
