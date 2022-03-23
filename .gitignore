@@ -3,3 +3,5 @@
 Thumbs.db
 .bundle
 node_modules
+pip
+configstore

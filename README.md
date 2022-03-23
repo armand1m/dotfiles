@@ -1,5 +1,7 @@
 # armand1m's dotfiles
 
-My configuration. Minimalist, but helps save a few thousand keystrokes a day. I use Mac OS X, so I can only guarantee they'll work with OS X, but I use some of these dotfiles on various linux servers, and they seem to be pretty flexible.
+my macOS dotfiles setup
 
-Based on geerlingguys dotfiles.
+yabai, skhd, nvim, git, zsh, nvim-coc, and osx configuration mostly
+
+setup is usually to clone it together with other gitrepos and just symlink them to my home directory
