@@ -7,7 +7,7 @@
     "coc-json": ">=1.4.1",
     "coc-prisma": ">=0.11.0",
     "coc-react-refactor": ">=0.5.0",
-    "coc-rls": ">=1.1.6",
+    "coc-rust-analyzer": ">=0.61.2",
     "coc-sh": ">=0.6.1",
     "coc-toml": ">=1.2.5",
     "coc-tsserver": ">=1.9.14",

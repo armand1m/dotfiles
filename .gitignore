@@ -8,3 +8,5 @@ configstore
 .config/gcloud
 .config/coc/suggest.txt
 .config/coc/list-*.json
+.config/coc/lists
+.config/coc/extensions/coc-rust-analyzer-data
