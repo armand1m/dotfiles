@@ -5,3 +5,6 @@ Thumbs.db
 node_modules
 pip
 configstore
+.config/gcloud
+.config/coc/suggest.txt
+.config/coc/list-*.json

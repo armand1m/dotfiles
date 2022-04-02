@@ -121,17 +121,5 @@ ctrl + alt + cmd - l : yabai -m window --resize right:-40:0
 # restart yabai
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
-ctrl + alt + cmd - o : node ~/Projects/Personal/philips-hue-experiments/commands/turn-on.js --all
-ctrl + alt + cmd - f : node ~/Projects/Personal/philips-hue-experiments/commands/turn-off.js --all
-
-# muminst keys
-# pare
-ctrl + cmd - 1 : curl -v -X POST -H "Content-Type: application/json" -d '{ "client": "mumble", "soundId": "15d2a689-20ff-4bc3-8148-92487f77b20d" }' https://muminst-server.d1m.dev/play-sound
-# mongoloide
-ctrl + cmd - 2 : curl -v -X POST -H "Content-Type: application/json" -d '{ "client": "mumble", "soundId": "ff480c01-17e9-4cbc-9b32-d266e86b2cfc" }' https://muminst-server.d1m.dev/play-sound
-# nao consegue
-ctrl + cmd - 3 : curl -v -X POST -H "Content-Type: application/json" -d '{ "client": "mumble", "soundId": "e4c39e28-e5dd-45ba-8702-e5576a32143a" }' https://muminst-server.d1m.dev/play-sound
-# ce vai morre
-ctrl + cmd - 4 : curl -v -X POST -H "Content-Type: application/json" -d '{ "client": "mumble", "soundId": "c7350d26-efbe-4707-bf51-9af0b1845b23" }' https://muminst-server.d1m.dev/play-sound
-# dando bote
-ctrl + cmd - 5 : curl -v -X POST -H "Content-Type: application/json" -d '{ "client": "mumble", "soundId": "5ff3e113-9761-4e38-8507-70b1d5c81045" }' https://muminst-server.d1m.dev/play-sound
+# make a window sticky
+alt - s : yabai -m window --toggle sticky
