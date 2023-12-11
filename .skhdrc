@@ -1,5 +1,5 @@
 # open terminal
-cmd - return : open -n -a "Terminal"
+cmd - return : open -n -a "Warp"
 
 # open chrome 
 cmd + shift - return : open -n -a "Google Chrome" 
@@ -119,7 +119,21 @@ ctrl + alt + cmd - k : yabai -m window --resize top:0:40
 ctrl + alt + cmd - l : yabai -m window --resize right:-40:0
 
 # restart yabai
-ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + alt + cmd - r : yabai --restart-service 
+#ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# move focus to next space
+ctrl + alt + cmd - n : index="$(yabai -m query --spaces --space | jq .index)" && \
+                  yabai -m space --focus "$(expr $index + 1)"
+ 
+# move focus to previous space
+ctrl + alt + cmd - p : index="$(yabai -m query --spaces --space | jq .index)" && \
+                  yabai -m space --focus "$(expr $index - 1)" 
 
 # make a window sticky
 alt - s : yabai -m window --toggle sticky
+
+# Float the next window and forward the keypress
+cmd - 0x2B -> : \
+    yabai -m signal --add label=float_next_window_created event=window_created action='yabai -m signal --remove float_next_window_created; yabai -m signal --remove float_next_application_launched; yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".floating == 0" && yabai -m window $YABAI_WINDOW_ID --toggle float' && \
+    yabai -m signal --add label=float_next_application_launched event=application_launched action='yabai -m signal --remove float_next_window_created; yabai -m signal --remove float_next_application_launched; yabai -m query --windows | jq -r ".[] | select(.pid == $YABAI_PROCESS_ID && .floating == 0).id" | xargs -I{} yabai -m window {} --toggle float'

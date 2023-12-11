@@ -14,10 +14,10 @@
   "typescript.preferences.quoteStyle": "double",
   "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
   "typescript.preferences.useAliasesForRenames": true,
+  "rust-analyzer.inlayHints.enable": true,
   "yaml.schemas": {
     "https://api.spinnaker.mgmt.netflix.net/managed/delivery-configs/schema": ["spinnaker.yml"],
-    "/Users/amagalhaes/.genesis/genesis.schema.json": [
-      "/Users/amagalhaes/.genesis/config.yml",
+    "https://configbin-api-iep.iepprod.netflix.net/api/v2/genesis/schema": [
       "*.genesis.yml",
       "*.genesis.yaml"
     ]

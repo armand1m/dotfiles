@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@yaegassy/coc-pylsp": ">=0.6.5",
     "coc-deno": ">=3.9.2",
     "coc-explorer": ">=0.22.9",
     "coc-fzf-preview": ">=2.12.8",
@@ -7,10 +8,10 @@
     "coc-json": ">=1.4.1",
     "coc-prisma": ">=0.11.0",
     "coc-react-refactor": ">=0.5.0",
-    "coc-rust-analyzer": ">=0.61.2",
+    "coc-rust-analyzer": ">=0.62.0",
     "coc-sh": ">=0.6.1",
     "coc-toml": ">=1.2.5",
-    "coc-tsserver": ">=1.9.14",
+    "coc-tsserver": ">=1.10.1",
     "coc-yaml": ">=1.7.5"
   }
 }

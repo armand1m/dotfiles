@@ -9,4 +9,11 @@ configstore
 .config/coc/suggest.txt
 .config/coc/list-*.json
 .config/coc/lists
-.config/coc/extensions/coc-rust-analyzer-data
+.config/coc/extensions/*
+!.config/coc/extensions/db.json
+!.config/coc/extensions/package.json
+explorer-actions
+.config/fish
+.config/gibbon
+.config/jgit
+.config/nflxprompt

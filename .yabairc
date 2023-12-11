@@ -1,43 +1,64 @@
 #!/usr/bin/env sh
 
-sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
-# global settings
-yabai -m config external_bar                 all:24:0
-yabai -m config mouse_follows_focus          on 
-yabai -m config focus_follows_mouse          autofocus 
-yabai -m config window_placement             second_child
-yabai -m config window_topmost               on 
-yabai -m config window_opacity               on 
-yabai -m config window_opacity_duration      0.0
-yabai -m config window_shadow                off 
-yabai -m config insert_feedback_color        0xaad75f5f
-yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        0.90
-yabai -m config split_ratio                  0.50
-yabai -m config auto_balance                 off 
-yabai -m config mouse_modifier               fn
-yabai -m config mouse_action1                move
-yabai -m config mouse_action2                resize
-
-# general space settings
-yabai -m config layout                       bsp
-yabai -m config top_padding                  24 
-yabai -m config bottom_padding               16
-yabai -m config left_padding                 16
-yabai -m config right_padding                16 
-yabai -m config window_gap                   16
+yabai -m config                                 \
+    external_bar                 all:24:0       \
+    mouse_follows_focus          on             \
+    focus_follows_mouse          autofocus      \
+    window_placement             second_child   \
+    window_topmost               on             \
+    window_opacity               on             \
+    window_shadow                off            \
+    insert_feedback_color        0xffd75f5f     \
+    active_window_opacity        1.0            \
+    normal_window_opacity        0.90           \
+    split_ratio                  0.50           \
+    auto_balance                 off            \
+    mouse_modifier               fn             \
+    mouse_action1                move           \
+    mouse_action2                resize         \
+    layout                       bsp            \
+    top_padding                  24             \
+    bottom_padding               16             \
+    left_padding                 16             \
+    right_padding                16             \
+    window_gap                   16             \
+    window_animation_duration    0.0            \
+    window_animation_frame_rate  120            \
+    window_opacity_duration      0.0            \
+    window_zoom_persist          on             \
+    window_origin_display        default        \
+    window_border_width          4              \
+    window_border_radius         12             \
+    window_border_blur           off            \
+    window_border_hidpi          on             \
+    window_border                off            \
+    active_window_border_color   0xff775759     \
+    normal_window_border_color   0xff555555     \
+    split_type                   auto           \
+    mouse_drop_action            swap           
 
 # rules
-## makes system preferences always floating
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^Pulse Secure$" manage=off
-yabai -m rule --add app="^Docker Desktop$" manage=off
+# yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off topmost=on
+yabai -m rule --add app="^Ivanti Secure Access Client$" manage=off topmost=on
+yabai -m rule --add app="^Docker Desktop$" manage=off topmost=on
+yabai -m rule --add app="^Live$" manage=off topmost=on
+yabai -m rule --add app="^JetBrains Toolbox$" manage=off topmost=on
+yabai -m rule --add app="^Elgato Control Center$" manage=off topmost=on
+yabai -m rule --add app="^Preview$" manage=off topmost=on
+yabai -m rule --add app="^Activity Monitor$" manage=off topmost=on
+yabai -m rule --add app="^Archetype Rabea$" manage=off topmost=on
+yabai -m rule --add app="^Archetype Petrucci$" manage=off topmost=on
+yabai -m rule --add app="^Archetype Tim Henson$" manage=off topmost=on
+yabai -m rule --add app="^Archetype Parallax$" manage=off topmost=on
+yabai -m rule --add app='^OMEGA Ampworks Granophyre$' manage=off topmost=on
+yabai -m rule --add app="^Photo Booth$" manage=off topmost=on
+yabai -m rule --add app="^Ableton Live 11 Suite$" manage=off topmost=on
+yabai -m rule --add app='Preferences$' manage=off topmost=on
 
-# signals
-## updates workspace widget when space changes
-yabai -m signal --add event=space_changed \
-  action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"pecan-workspace-jsx\"'"
+yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".resizable == 0 and .floating == 0" && yabai -m window $YABAI_WINDOW_ID --toggle float'
 
 echo "yabai configuration loaded.."
