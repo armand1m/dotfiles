@@ -1,5 +1,5 @@
-syntax on               " enable syntax highlighting
 set cursorline          " highlight the current line
+syntax on               " enable syntax highlighting
 set ruler               " show line number in bar
 set nobackup            " don't create pointless backup files; Use VCS instead
 set autoread            " watch for file changes
@@ -44,7 +44,6 @@ inoremap {}     {}
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
-"Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'zivyangll/git-blame.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -67,19 +66,24 @@ call plug#end()
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
+"if (has("termguicolors"))
+  "set termguicolors
+"endif
+
 colorscheme OceanicNext
-
-" shortcuts
-map <c-u> :call gitblame#echo()<cr>
-" map <c-b> :nerdtreetoggle<cr>
-nmap <c-b> :CocCommand explorer<cr>
-
-autocmd VimEnter * :CocCommand explorer
 
 set background=dark
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
+" shortcuts
+map <c-u> :call gitblame#echo()<cr>
+
+" map ctrl-b to toggle the explorer
+nmap <c-b> :CocCommand explorer<cr>
+
+" open the explorer when vim is open
+autocmd VimEnter * :CocCommand explorer
 
 inoremap <silent><expr> <tab>
       \ pumvisible() ? "\<c-n>" :
@@ -93,11 +97,7 @@ function! s:check_back_space() abort
 endfunction
 
 " use <c-space> to trigger completion.
-if has('nvim')
- inoremap <silent><expr> <C-Space> coc#refresh()
-else
- inoremap <silent><expr> <C-Space> coc#refresh()
-endif
+inoremap <silent><expr> <C-Space> coc#refresh()
 
 inoremap <C-@> <C-Space>
 
