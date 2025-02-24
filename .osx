@@ -392,6 +392,9 @@ if [[ "$RUN_AS_ROOT" = true ]]; then
   killall mds > /dev/null 2>&1
 fi
 
+# Disable CMD + Space hotkey from spotlight, so that Raycast can take this shortcut
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 '{enabled = 0; value = {parameters = (32, 49, 1048576); type = standard;};}'
+
 ###############################################################################
 # Terminal                                                                    #
 ###############################################################################
@@ -447,6 +450,7 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
 # Use the system print dialog
 defaults write com.google.Chrome DisablePrintPreview -bool true
+
 
 ###############################################################################
 # Kill/restart affected applications                                          #
