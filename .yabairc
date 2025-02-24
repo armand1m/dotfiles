@@ -13,7 +13,7 @@ yabai -m config                                 \
     window_shadow                off            \
     insert_feedback_color        0xffd75f5f     \
     active_window_opacity        1.0            \
-    normal_window_opacity        0.90           \
+    normal_window_opacity        1.0            \
     split_ratio                  0.50           \
     auto_balance                 off            \
     mouse_modifier               fn             \
@@ -57,8 +57,12 @@ yabai -m rule --add app="^Archetype Parallax$" manage=off topmost=on
 yabai -m rule --add app='^OMEGA Ampworks Granophyre$' manage=off topmost=on
 yabai -m rule --add app="^Photo Booth$" manage=off topmost=on
 yabai -m rule --add app="^Ableton Live 11 Suite$" manage=off topmost=on
-yabai -m rule --add app='Preferences$' manage=off topmost=on
+yabai -m rule --add app="Preferences$" manage=off topmost=on
+yabai -m rule --add app="^Raycast$" manage=off topmost=on
 
 yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".resizable == 0 and .floating == 0" && yabai -m window $YABAI_WINDOW_ID --toggle float'
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
 echo "yabai configuration loaded.."

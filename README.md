@@ -2,6 +2,6 @@
 
 my macOS dotfiles setup
 
-yabai, skhd, nvim, git, zsh, nvim-coc, and osx configuration mostly
+yabai, skhd, nvim, git, zsh, nvim-coc, sketchybar, and osx configuration mostly
 
-setup is usually to clone it together with other gitrepos and just symlink them to my home directory
+setup is automated through armand1m/mac-dev-playbook   

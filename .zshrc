@@ -6,6 +6,10 @@ export PATH="/opt/homebrew/bin:$HOME/.local/bin:$PATH"
 # custom: add database clients to PATH
 export PATH="/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/mysql-client/bin:$PATH"
 
+export DENO_INSTALL="/Users/amagalhaes/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/amagalhaes/.oh-my-zsh"
 
@@ -74,7 +78,7 @@ ZSH_THEME=""
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git jsontools kubectl terraform)
+plugins=(git jsontools kubectl terraform fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,6 +124,7 @@ alias reset-vpn="sudo route delete pcs.flxvpn.net"
 alias kill-vpn="sudo kill -SEGV $(ps auwx | grep dsAccessService | grep Ss | awk '{print $2}')"
 alias reset-vpn-daemon="sudo launchctl unload -w /Library/LaunchDaemons/net.pulsesecure.AccessService.plist; sudo launchctl load -w /Library/LaunchDaemons/net.pulsesecure.AccessService.plist"
 
+alias fix-vpn="reset-vpn | kill-vpn | reset-vpn-daemon"
 # git aliases
 alias git-effort="git log --pretty=format: --name-only | sort | uniq -c | sort -rg"
 
@@ -145,7 +150,8 @@ alias fancy-date="date '+DATE: %Y-%m-%d%nTIME: %H:%M:%S'"
 alias time-ams="TZ=Europe/Amsterdam fancy-date"
 alias time-sp="TZ=America/Sao_Paulo fancy-date"
 alias time-la="TZ=America/Los_Angeles fancy-date"
-alias l="exa -lah"
+alias l="eza -lah"
+alias ls-servers="sudo lsof -i -P | grep LISTEN"
 
 export BAT_THEME="base16-256"
 
